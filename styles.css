@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    min-height: 100vh;
+    background: black;
+}
+
+label {
+    color: rgb(121, 182, 242);
+}
+
+.wrapper {
+    width: 443px;
+    background-color: rgb(53, 59, 69);
+    box-shadow:   9px 9px 15px 3px rgba(13, 252, 252, 0.5);
+    border: 3px solid rgb(13, 252, 252);
+    border-radius: 5px;
+    padding: 30px 25px 40px;
+}
+
+.wrapper :where(textarea, input, button, select) {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.wrapper :where(textarea, input)::placeholder{
+    color: rgb(121, 182, 242);
+}
+
+.wrapper :where(textarea, input):focus{
+    box-shadow: 0px 2px 4px rgba(13, 252, 252, 0.9);
+}
+
+.wrapper textarea {
+    height: 270px;
+    resize: none;
+    border: 1px solid rgb(13, 252, 252);
+    padding: 8px 13px;
+    font-size: 17.6px;
+}
+
+.wrapper .file-options {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-options .option{
+    width: calc(100% / 2 - 8px);
+}
+
+.option label {
+    font-size: 17px;
+}
+
+.option :where(input, select-menu) {
+    height: 50px;
+    padding: 0 13px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 1px solid rgb(13, 252, 252);
+}
+
+.option .select-menu select{
+    height: 50px;
+    background: none;
+    color: rgb(121, 182, 242);
+}
+
+.wrapper .save-btn{
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.9;
+    padding: 16px 0;
+    margin-top: 20px;
+    pointer-events: none;
+    background: rgb(13, 252, 252);;
+}
+
+.save-btn:hover{
+    background: rgb(13, 252, 252);;
+}
+
+textarea:valid ~ .save-btn{
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+  
+@media screen and (max-width: 475px) {
+  .wrapper{
+    padding: 25px 18px 30px;
+  }
+  .wrapper :where(textarea, input, select, button, label){
+    font-size: 16px!important;
+  }
+  .file-options .option{
+    width: calc(100% / 2 - 5px);
+  }
+  .option :where(input, .select-menu){
+    padding: 0 10px;
+  }
+  .wrapper .save-btn{
+    padding: 15px 0;
+  }
+}
